@@ -1,12 +1,13 @@
 import math
-def is_square(number):
-	'''problem 1)
-	write a function that tells you if a number is a perfect square
-	return True when the variable number is a perfect square
-	return False when the variable called number is not a perfect square
-	e.g. 
-		number=16 -> True 
-		number =15 -> False
-	'''
-	return True
- 
+def is_square(n):
+    x = n // 2
+    y = set([x])
+    while x * x != n:
+        x = (x + (n // x)) // 2
+        if x in y: return False
+        y.add(x)
+    return True
+
+print(is_square(8))
+print(is_square(9))
+print(is_square(100))
